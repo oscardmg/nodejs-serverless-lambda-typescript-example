@@ -1,0 +1,17 @@
+service: hello
+
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  hello:
+    handler: src/hello.handler
+    events:
+      - httpApi: GET /hello
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
